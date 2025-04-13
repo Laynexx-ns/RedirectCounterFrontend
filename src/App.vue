@@ -10,7 +10,7 @@ const data = ref<Data | null>(null);
 
 onMounted(async ()=>{
   try{
-    const resp = await fetch("http://localhost:8080/counters")
+    const resp = await fetch("https://arthur-izmailyan.duckdns.org/counters")
     data.value = await resp.json()
     console.log(data.value)
   } catch(e){
