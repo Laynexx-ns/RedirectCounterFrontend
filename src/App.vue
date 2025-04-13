@@ -26,6 +26,7 @@ onMounted(async ()=>{
         <div class="card-content">
           <h2>Главная страница</h2>
           <div class="counter">{{ data.CounterMain }}</div>
+          <span class="your-url">https://arthur-izmailyan.duckdns.org/lyceum-6/main <br/></span>
           <span class="url">https://licey-6.odinedu.ru</span>
         </div>
         <div class="qr-code">
@@ -39,6 +40,7 @@ onMounted(async ()=>{
         <div class="card-content">
           <h2>Правила распорядка обучения</h2>
           <div class="counter">{{ data.CounterStudentRules }}</div>
+          <span class="your-url">https://arthur-izmailyan.duckdns.org/lyceum-6/student-rules <br/></span>
           <span class="url">https://licey-6.odinedu.ru/2024/02/15/правила-внутреннего-распорядка-обуч/</span>
         </div>
         <div class="qr-code">
@@ -52,6 +54,7 @@ onMounted(async ()=>{
         <div class="card-content">
           <h2>Устав лицея</h2>
           <div class="counter">{{ data.CounterLyceumRegulation }}</div>
+          <span class="your-url">https://arthur-izmailyan.duckdns.org/lyceum-6/lyceum-regulation <br/></span>
           <span class="url">https://licey-6.odinedu.ru/2023/08/15/устав-маоу-одинцовского-лицея-№6-им-а-с/</span>
         </div>
         <div class="qr-code">
