@@ -27,7 +27,13 @@ onMounted(async () => {
   }
 })
 
-const cards = [
+const cards: {
+  title: string;
+  counterKey: keyof Data;
+  yourUrl: string;
+  url: string;
+  qr: string;
+} = [
   {
     title: 'Главная страница',
     counterKey: 'CounterMain',
@@ -119,7 +125,7 @@ const cards = [
       >
         <div class="card-content">
           <h2>{{ item.title }}</h2>
-          <div class="counter">{{ data[item.counterKey] as keyof typeof data }}</div>
+          <div class="counter">{{ data[item.counterKey] }}</div>
           <span class="your-url">{{ item.yourUrl }}<br /></span>
           <span class="url">{{ item.url }}</span>
         </div>
