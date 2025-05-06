@@ -1,71 +1,144 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 
-interface Data{
-  CounterMain: number,
-  CounterStudentRules: number,
-  CounterLyceumRegulation: number,
+interface Data {
+  CounterMain: number
+  CounterStudentRules: number
+  CounterLyceumRegulation: number
+  CounterResponsibleInfo: number
+  CounterLicenseRegistry: number
+  CounterAccreditation: number
+  CounterEducationLicense: number
+  CounterCharterChanges: number
+  CounterEGRUL: number
+  CounterEducationActivityLicense: number
+  CounterAccreditationAppendix: number
 }
-const data = ref<Data | null>(null);
 
-onMounted(async ()=>{
-  try{
-    const resp = await fetch("https://arthur-izmailyan.duckdns.org/counters")
+const data = ref<Data | null>(null)
+const baseUrl = "https://formulink.duckdns.org/lyceum-6/"
+
+onMounted(async () => {
+  try {
+    const resp = await fetch("https://formulink.duckdns.org/counters")
     data.value = await resp.json()
-    console.log(data.value)
-  } catch(e){
-    console.log(e)
+  } catch (e) {
+    console.error(e)
   }
 })
-</script>
 
+const cards = [
+  {
+    title: 'Главная страница',
+    counterKey: 'CounterMain',
+    yourUrl: `${baseUrl}main`,
+    url: 'https://licey-6.odinedu.ru',
+    qr: 'main'
+  },
+  {
+    title: 'Правила распорядка обучения',
+    counterKey: 'CounterStudentRules',
+    yourUrl: `${baseUrl}student-rules`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/правила-внутреннего-распорядка-обуч/',
+    qr: 'student-rules'
+  },
+  {
+    title: 'Устав лицея',
+    counterKey: 'CounterLyceumRegulation',
+    yourUrl: `${baseUrl}lyceum-regulation`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/устав-лицея/',
+    qr: 'lyceum-regulation'
+  },
+  {
+    title: 'Сведения об ответственных',
+    counterKey: 'CounterResponsibleInfo',
+    yourUrl: `${baseUrl}responsible-info`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/сведения-об-ответственных-лиц/',
+    qr: 'responsible-info'
+  },
+  {
+    title: 'Реестр лицензий',
+    counterKey: 'CounterLicenseRegistry',
+    yourUrl: `${baseUrl}license-registry`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/реестр-лицензий/',
+    qr: 'license-registry'
+  },
+  {
+    title: 'Свидетельство о гос. аккредитации',
+    counterKey: 'CounterAccreditation',
+    yourUrl: `${baseUrl}accreditation`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/свидетельство-о-государственной-акк/',
+    qr: 'accreditation'
+  },
+  {
+    title: 'Лицензия на образовательную деятельность',
+    counterKey: 'CounterEducationLicense',
+    yourUrl: `${baseUrl}education-license`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/лицензия-на-образовательную-деятельн/',
+    qr: 'education-license'
+  },
+  {
+    title: 'Изменения в уставе',
+    counterKey: 'CounterCharterChanges',
+    yourUrl: `${baseUrl}charter-changes`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/изменения-в-уставе/',
+    qr: 'charter-changes'
+  },
+  {
+    title: 'Выписка из ЕГРЮЛ',
+    counterKey: 'CounterEGRUL',
+    yourUrl: `${baseUrl}egrul`,
+    url: 'https://licey-6.odinedu.ru/2024/02/15/выписка-из-егрюл/',
+    qr: 'egrul'
+  },
+  {
+    title: 'Лицензия на образовательную деятельность (продолжение)',
+    counterKey: 'CounterEducationActivityLicense',
+    yourUrl: `${baseUrl}education-activity-license`,
+    url: 'https://licey-6.odinedu.ru/2024/09/02/лицензия-на-образовательную-деятельн-2/',
+    qr: 'education-activity-license'
+  },
+  {
+    title: 'Свидетельство о гос. аккредитации (Приложение)',
+    counterKey: 'CounterAccreditationAppendix',
+    yourUrl: `${baseUrl}accreditation-appendix`,
+    url: 'https://licey-6.odinedu.ru/2024/09/02/свидетельство-о-государственной-акк-4/',
+    qr: 'accreditation-appendix'
+  }
+]
+
+
+</script>
 <template>
   <div v-if="data" class="app">
     <div class="main-container">
-      <div class="card">
+      <div
+          class="card"
+          v-for="(item, index) in cards"
+          :key="index"
+      >
         <div class="card-content">
-          <h2>Главная страница</h2>
-          <div class="counter">{{ data.CounterMain }}</div>
-          <span class="your-url">https://arthur-izmailyan.duckdns.org/lyceum-6/main <br/></span>
-          <span class="url">https://licey-6.odinedu.ru</span>
+          <h2>{{ item.title }}</h2>
+          <div class="counter">{{ data[item.counterKey] }}</div>
+          <span class="your-url">{{ item.yourUrl }}<br /></span>
+          <span class="url">{{ item.url }}</span>
         </div>
         <div class="qr-code">
           <a href="http://qrcoder.ru" target="_blank">
-            <img src="/qr1.png" alt="main qr" title="QR код">
-          </a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h2>Правила распорядка обучения</h2>
-          <div class="counter">{{ data.CounterStudentRules }}</div>
-          <span class="your-url">https://arthur-izmailyan.duckdns.org/lyceum-6/student-rules <br/></span>
-          <span class="url">https://licey-6.odinedu.ru/2024/02/15/правила-внутреннего-распорядка-обуч/</span>
-        </div>
-        <div class="qr-code">
-          <a href="http://qrcoder.ru" target="_blank">
-            <img src="/qr2.png" alt="main qr" title="QR код">
-          </a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-content">
-          <h2>Устав лицея</h2>
-          <div class="counter">{{ data.CounterLyceumRegulation }}</div>
-          <span class="your-url">https://arthur-izmailyan.duckdns.org/lyceum-6/lyceum-regulation <br/></span>
-          <span class="url">https://licey-6.odinedu.ru/2023/08/15/устав-маоу-одинцовского-лицея-№6-им-а-с/</span>
-        </div>
-        <div class="qr-code">
-          <a href="http://qrcoder.ru" target="_blank">
-            <img src="/qr3.png" alt="main qr" title="QR код">
+            <img
+                :src="`http://qrcoder.ru/code/?https%3A%2F%2Fformulink.duckdns.org%2Flyceum-6%2F${item.qr}&4&0`"
+                :alt="`${item.title} QR`"
+                width="164"
+                height="164"
+                title="QR код"
+            />
           </a>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 
 <style>
 :root {
@@ -108,6 +181,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   border: 1px solid var(--card-border);
   display: flex;
+  padding-bottom: 20px;
   flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -142,14 +216,7 @@ h2 {
   color: var(--text-secondary);
 }
 
-.qr-code {
-  background: #2d2d2d;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px solid var(--card-border);
-}
+
 
 .qr-code img {
   max-width: 100%;
