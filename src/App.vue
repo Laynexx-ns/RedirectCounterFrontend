@@ -119,7 +119,7 @@ const cards = [
       >
         <div class="card-content">
           <h2>{{ item.title }}</h2>
-          <div class="counter">{{ data[item.counterKey] }}</div>
+          <div class="counter">{{ data[item.counterKey] as keyof typeof data }}</div>
           <span class="your-url">{{ item.yourUrl }}<br /></span>
           <span class="url">{{ item.url }}</span>
         </div>
