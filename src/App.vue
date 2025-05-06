@@ -33,7 +33,7 @@ const cards: {
   yourUrl: string;
   url: string;
   qr: string;
-} = [
+}[] = [
   {
     title: 'Главная страница',
     counterKey: 'CounterMain',
