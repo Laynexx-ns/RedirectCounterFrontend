@@ -45,14 +45,14 @@ const cards: {
     title: 'Правила распорядка обучения',
     counterKey: 'CounterStudentRules',
     yourUrl: `${baseUrl}student-rules`,
-    url: 'https://licey-6.odinedu.ru/2024/02/15/правила-внутреннего-распорядка-обуч/',
+    url: 'https://licey-6.odinedu.ru/2024/02/15/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B5%D0%BD%D0%BD%D0%B5%D0%B3%D0%BE-%D1%80%D0%B0%D1%81%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B0-%D0%BE%D0%B1%D1%83%D1%87//',
     qr: 'student-rules'
   },
   {
     title: 'Устав лицея',
     counterKey: 'CounterLyceumRegulation',
     yourUrl: `${baseUrl}lyceum-regulation`,
-    url: 'https://licey-6.odinedu.ru/2024/02/15/устав-лицея/',
+    url: 'https://licey-6.odinedu.ru/2023/08/15/%D1%83%D1%81%D1%82%D0%B0%D0%B2-%D0%BC%D0%B0%D0%BE%D1%83-%D0%BE%D0%B4%D0%B8%D0%BD%D1%86%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE-%D0%BB%D0%B8%D1%86%D0%B5%D1%8F-%E2%84%966-%D0%B8%D0%BC-%D0%B0-%D1%81/',
     qr: 'lyceum-regulation'
   },
   {
@@ -125,7 +125,7 @@ const cards: {
       >
         <div class="card-content">
           <h2>{{ item.title }}</h2>
-          <div class="counter">{{ data[item.counterKey] }}</div>
+          <div class="counter">{{ data[item.counterKey] }} переходов</div>
           <span class="your-url">{{ item.yourUrl }}<br /></span>
           <span class="url">{{ item.url }}</span>
         </div>
